@@ -10,8 +10,17 @@ export default function Search({ onSearchChange }) {
       `${API_URL}/cities?minPopulation=20000&namePrefix=${inputValue}`,
       geoCitiesOptions
     )
-      .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((res) => res.json())
+      .then((res) => {
+        return {
+          options: res.data.map((city) => {
+            return {
+              value: `${city.latitude} ${city.longitude}`,
+              label: `${city.name}, ${city.countryCode}`,
+            };
+          }),
+        };
+      })
       .catch((err) => console.error(err));
   }
 
