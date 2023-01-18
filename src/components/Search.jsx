@@ -7,7 +7,7 @@ export default function Search({ onSearchChange }) {
 
   function loadOptions(inputValue) {
     return fetch(
-      `${API_URL}/cities?minPopulation=20000&namePrefix=${inputValue}`,
+      `${API_URL}/cities?minPopulation=100000&namePrefix=${inputValue}`,
       geoCitiesOptions
     )
       .then((res) => res.json())
