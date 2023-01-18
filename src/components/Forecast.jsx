@@ -51,16 +51,28 @@ export default function Forecast({ data }) {
             <AccordionItemPanel>
               <div className="details-grid">
                 <div className="daily-grid-item">
-                  <label>Pressure</label>
+                  <label>Real Feel: </label>
+                  <label>{Math.round(item.main.feels_like)} °F</label>
+                </div>
+                <div className="daily-grid-item">
+                  <label>Pressure: </label>
                   <label>{item.main.pressure} hPa</label>
                 </div>
                 <div className="daily-grid-item">
-                  <label>Humidity</label>
+                  <label>Humidity: </label>
                   <label>{item.main.humidity} %</label>
                 </div>
                 <div className="daily-grid-item">
-                  <label>Clouds</label>
+                  <label>Clouds: </label>
                   <label>{item.clouds.all} %</label>
+                </div>
+                <div className="daily-grid-item">
+                  <label>Wind Speed: </label>
+                  <label>{Math.round(item.wind.speed)} mph</label>
+                </div>
+                <div className="daily-grid-item">
+                  <label>Sea Level: </label>
+                  <label>{Math.round(item.main.sea_level)} ft</label>
                 </div>
               </div>
             </AccordionItemPanel>
