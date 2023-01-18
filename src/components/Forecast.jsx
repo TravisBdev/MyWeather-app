@@ -25,7 +25,7 @@ export default function Forecast({ data }) {
 
   return (
     <>
-      <label className="title">Daily</label>
+      <label className="title">Seven Day Forecast</label>
       <Accordion allowZeroExpanded>
         {data.list.slice(0, 7).map((item, index) => (
           <AccordionItem key={index}>
@@ -51,7 +51,7 @@ export default function Forecast({ data }) {
             <AccordionItemPanel>
               <div className="details-grid">
                 <div className="daily-grid-item">
-                  <label>Real Feel: </label>
+                  <label>Real Feel:</label>
                   <label>{Math.round(item.main.feels_like)} °F</label>
                 </div>
                 <div className="daily-grid-item">
