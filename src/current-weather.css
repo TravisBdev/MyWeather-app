@@ -8,7 +8,8 @@
   padding: 0 20px 20px 20px;
 }
 
-.top {
+.top,
+.bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,3 +33,34 @@
 .weather-icon {
   width: 6.25rem;
 }
+
+.temp {
+  font-weight: 500;
+  font-size: 4.375em;
+  width: auto;
+  letter-spacing: -1px;
+  margin: .625rem 0;
+}
+
+.details {
+  width: 100%;
+  padding-left: 1.25rem;
+}
+
+.param-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.param-label {
+  text-align: left;
+  font-weight: 400;
+  font-size: .75em;
+}
+
+.param-value {
+  text-align: right;
+  font-weight: 500;
+  font-size: .75em;
+}
+
