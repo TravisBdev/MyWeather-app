@@ -1,3 +1,4 @@
+import "../forecast.css";
 import {
   Accordion,
   AccordionItem,
@@ -6,7 +7,22 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 
+const WEEK_DAYS = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
+
 export default function Forecast({ data }) {
+  const dayOfWeek = new Date().getDay();
+  const dailyForecast = WEEK_DAYS.slice(dayOfWeek, WEEK_DAYS.length).concat(
+    WEEK_DAYS.slice(0, dayOfWeek)
+  );
+
   return (
     <>
       <label className="title">Daily</label>
@@ -15,12 +31,20 @@ export default function Forecast({ data }) {
           <AccordionItem key={index}>
             <AccordionItemHeading>
               <AccordionItemButton>
-                <div className="dailyItem">
+                <div className="daily-forecast">
                   <img
                     src={`icons/${item.weather[0].icon}.png`}
                     alt="weather forecast"
                     className="small-icon"
                   />
+                  <label className="day">{dailyForecast[index]}</label>
+                  <label className="daily-description">
+                    {item.weather[0].description}
+                  </label>
+                  <label className="minMax-temp">
+                    {Math.round(item.main.temp_min)} °F /{" "}
+                    {Math.round(item.main.temp_max)} °F
+                  </label>
                 </div>
               </AccordionItemButton>
             </AccordionItemHeading>
